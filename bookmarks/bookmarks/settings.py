@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     
     # OAuth 
     'social_django',
+    
+    # For HTTPS
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
