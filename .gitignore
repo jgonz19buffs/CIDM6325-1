@@ -6,3 +6,5 @@ env/
 db.sqlite3
 .env
 /Lib
+bookmarks/cert.crt
+bookmarks/cert.key
