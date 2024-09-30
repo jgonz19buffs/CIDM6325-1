@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.db import models
-from django.utils import slugify
+from django.utils.text import slugify
 
 # Create your models here.
 class Image(models.Model):
@@ -30,3 +30,9 @@ class Image(models.Model):
             self.slug = slugify(self.title)
 
         super().save(*args, **kwargs)
+
+    users_like = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name='images_liked',
+        blank=True
+    )
