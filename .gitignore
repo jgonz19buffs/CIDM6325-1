@@ -5,4 +5,4 @@ config.py
 env/
 db.sqlite3
 .env
-/lib
+/Lib
