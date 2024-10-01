@@ -49,14 +49,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
     # OAuth 
     'social_django',
-    
     # For HTTPS
     'django_extensions',
-
-
+    # thumbnails
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
