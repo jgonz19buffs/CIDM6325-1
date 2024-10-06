@@ -44,6 +44,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'images.apps.ImagesConfig',
+    'actions.app.AppsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
