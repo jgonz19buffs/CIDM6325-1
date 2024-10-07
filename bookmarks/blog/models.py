@@ -65,7 +65,7 @@ class Post(models.Model):
                 self.slug
             ]
         )
-    #tags = TaggableManager()
+    tags = TaggableManager()
     
 class Comment(models.Model):
     post = models.ForeignKey(
@@ -136,7 +136,7 @@ class Recipe(models.Model):
             ]
         )
     
-    #cuisineType = TaggableManager()
+    cuisineType = TaggableManager()
 
 class Review(models.Model):
     recipe = models.ForeignKey(

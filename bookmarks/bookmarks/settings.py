@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     # thumbnails
     'easy_thumbnails',
     'debug_toolbar',
+    'taggit',
 ]
 
 MIDDLEWARE = [

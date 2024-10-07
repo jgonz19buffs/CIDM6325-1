@@ -8,8 +8,11 @@
 <body>
     <div id="header">
         <span class="logo">Bookmarks</span>
-        {% if request.user.is_authenticated %}
           <ul class="menu">
+            <li {% if section == "blog" %}class="selected"{% endif %}>
+              <a href="{% url "blog:list" %}">Blog</a>
+            </li>
+            {% if request.user.is_authenticated %}
             <li {% if section == "dashboard" %}class="selected"{% endif %}>
               <a href="{% url "dashboard" %}">My dashboard</a>
             </li>
@@ -19,8 +22,8 @@
             <li {% if section == "people" %}class="selected"{% endif %}>
               <a href="{% url "user_list" %}">People</a>
             </li>
+            {% endif %}
           </ul>
-        {% endif %}
         <span class="user">
           {% if request.user.is_authenticated %}
             Hello {{ request.user.first_name |default:request.user.username}},
