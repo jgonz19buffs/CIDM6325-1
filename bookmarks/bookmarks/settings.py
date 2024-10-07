@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'images.apps.ImagesConfig',
     'actions.apps.ActionsConfig',
+    'blog.apps.BlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -61,7 +62,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    #'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

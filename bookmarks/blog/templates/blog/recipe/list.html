@@ -1,0 +1,31 @@
+{% extends "blog/base.html" %}
+
+{% block title%}My Blog Recipes{% endblock %}
+
+{% block content %}
+  <h1>Recipes</h1>
+  {% if cuisineType %}
+    <h2>Recipes tagged with "{{ cuisineType.name }}"</h2>
+  {% endif %}
+  {% for recipe in recipes %}
+    <h2>
+        <a href="{{ recipe.get_absolute_url }}">
+            {{ recipe.title }}
+        </a>
+    </h2>
+    <p class="tags">
+      Cuisine Types: 
+      {% for recipeType in recipe.cuisineTypes.all %}
+        <a href="{% url "blog:recipe_list_by_cuisineType" %}">
+          {{ cuisineType.name }}
+        </a>{% if not forloop.last %},{% endif %}
+      {% endfor %}
+      {{recipe.cuisineType.all|join:", "}}
+    </p>
+    <p class="date">
+        Published {{ recipe.publish }} by {{ recipe.author }}
+    </p>
+        {{ recipe.instructions|truncatewords:30|linebreaks }}
+  {% endfor %}
+  {% include "pagination.html" with page=recipes %}
+{% endblock %}
