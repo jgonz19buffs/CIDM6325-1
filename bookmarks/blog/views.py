@@ -235,7 +235,8 @@ def recipe_detail(request, year, month, day, recipe):
     form = ReviewForm()
 
     # List of similar recipes
-    recipe_cuisineTypes_ids = recipe.cuisineType.values_list('id', flat=True)
+    #recipe_cuisineTypes_ids = recipe.cuisineType.values_list('id', flat=True)
+    recipe_cuisineTypes_ids = recipe.cuisineType
     similar_recipes = Recipe.objects.all().filter(
         cuisineType__in=recipe_cuisineTypes_ids
     ).exclude(id=recipe.id)

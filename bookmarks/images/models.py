@@ -2,6 +2,8 @@ from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+from blog.models import Recipe
+
 
 # Create your models here.
 class Image(models.Model):
@@ -42,3 +44,9 @@ class Image(models.Model):
 
     def get_absolute_url(self):
         return reverse('images:detail', args=[self.id, self.slug])
+    
+    recipe_assoc = models.ManyToManyField(
+        Recipe,
+        related_name='recipe_assoc',
+        blank=True
+    )

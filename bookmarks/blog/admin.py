@@ -21,7 +21,7 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
-    list_display = ['title', 'slug', 'author', 'publish', 'status']
+    list_display = ['title', 'slug', 'author', 'publish', 'status','cuisineType']
     list_filter = ['status', 'created', 'publish', 'author']
     search_fields = ['title', 'ingredients']
     prepopulated_fields = {'slug':('title',)}
