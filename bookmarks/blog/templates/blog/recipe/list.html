@@ -14,18 +14,14 @@
         </a>
     </h2>
     <p class="tags">
-      Cuisine Types: 
-      {% for recipeType in recipe.cuisineTypes.all %}
-        <a href="{% url "blog:recipe_list_by_cuisineType" %}">
-          {{ cuisineType.name }}
-        </a>{% if not forloop.last %},{% endif %}
-      {% endfor %}
-      {{recipe.cuisineType.all|join:", "}}
+      Cuisine Type: 
+      <a href="#" %}">
+          {{ recipe.cuisineType }}
+      </a>
     </p>
     <p class="date">
         Published {{ recipe.publish }} by {{ recipe.author }}
     </p>
-        {{ recipe.instructions|truncatewords:30|linebreaks }}
   {% endfor %}
   {% include "pagination.html" with page=recipes %}
 {% endblock %}
