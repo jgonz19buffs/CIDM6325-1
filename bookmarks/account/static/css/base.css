@@ -98,6 +98,12 @@ ol {
     padding:30px 100px;
 }
 
+#content1 {
+    float: left;
+    padding:30px 100px;
+    width:60%;
+}
+
 #sidebar { 
     float:right;
     width:30%;
