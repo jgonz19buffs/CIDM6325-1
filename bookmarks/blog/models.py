@@ -93,6 +93,18 @@ class Recipe(models.Model):
         DRAFT = 'DF', 'Draft'
         PUBLISHED = 'PB', 'Published'
 
+        #cuisineType = TaggableManager()
+    class CuisineType(models.TextChoices):
+        AFRICAN = 'AF', 'African'
+        AMERICAN = 'US', 'American'
+        CENTRALAMERICAN = 'CA','CentralAmerican'
+        SOUTHAMERICAN = 'SA','SouthAmerican'
+        CARIBBEAN = 'C','Caribbean'
+        ASIAN = 'AS','Asian'
+        EUROPEAN = 'EU','European'
+        OTHER = 'O','Other'
+    
+
     title = models.CharField(max_length=250)
     slug = models.SlugField(
         max_length=250,
@@ -115,6 +127,11 @@ class Recipe(models.Model):
     )
     objects = models.Manager() # The default manager.
     published = PublishedManager() # Our custom manager.
+    cuisineType = models.CharField(
+        max_length=2,
+        choices=CuisineType,
+        default=CuisineType.OTHER
+    )
     
     class Meta:
         ordering = ['-publish']
@@ -135,8 +152,6 @@ class Recipe(models.Model):
                 self.slug
             ]
         )
-    
-    cuisineType = TaggableManager()
 
 class Review(models.Model):
     recipe = models.ForeignKey(
