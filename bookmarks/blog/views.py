@@ -39,7 +39,8 @@ def post_list(request, tag_slug=None):
         'blog/post/list.html',
         {
             'posts': posts,
-            'tag': tag
+            'tag': tag,
+            'section': 'posts'
         }
     )
 
@@ -214,7 +215,8 @@ def recipe_list(request,tag_slug=None):
         'blog/recipe/list.html',
         {
             'recipes': recipes,
-            'cuisineTypes':tag    
+            'cuisineTypes':tag,
+            'section': 'recipes'
         }
     )
 

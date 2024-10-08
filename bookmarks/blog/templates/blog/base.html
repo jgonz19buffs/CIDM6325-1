@@ -8,9 +8,9 @@
 </head>
 <body>
   <div id="header">
-    <span class="logo">My Blog</span>    
+    <span class="logo"><a href="{% url "blog:list" %}">My Blog</a></span>    
       <ul class="menu">
-        <li {% if section == "post" %}class="selected"{% endif %}>
+        <li {% if section == "posts" %}class="selected"{% endif %}>
           <a href="{% url "blog:post_list" %}">Posts</a>
         </li>
         <li {% if section == "recipes" %}class="selected"{% endif %}>
