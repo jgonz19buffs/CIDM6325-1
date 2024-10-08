@@ -1,5 +1,6 @@
 {% load thumbnail %}
 {% for image in images %}
+  {% with recipes=image.recipe_assoc.all %}
   <div class="image">
     <a href="{{ image.get_absolute_url }}">
       {% thumbnail image.image 300x300 crop="smart" as im %}
@@ -9,8 +10,15 @@
     </a>
     <div class="info">
       <a href="{{ image.get_absolute_url }}" class="title">
-        {{ image.title }}
+        {% if recipes.count > 1 %}
+          {{ recipes.0.cuisineType }}
+        {% elif recipes.count == 1 %}
+          {{ recipes.0.title}}
+        {% else %}
+          {{ image.title }}
+        {% endif %}
       </a>
     </div>
   </div>
+  {% endwith%}
 {% endfor %}
